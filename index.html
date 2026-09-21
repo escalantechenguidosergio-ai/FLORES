@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <!-- =====================================================
+         CONFIGURACIÓN GENERAL
+    ====================================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover"
+    >
+
+    <meta
+        name="theme-color"
+        content="#03050b"
+    >
+
+    <meta
+        name="description"
+        content="Un detalle especial por el Día de las Flores Amarillas, de parte de Gudi Escalante."
+    >
+
+    <meta
+        name="author"
+        content="Gudi Escalante"
+    >
+
+    <title>Día de las Flores Amarillas 🌻 | Gudi Escalante</title>
+
+
+    <!-- =====================================================
+         ESTILOS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     MUNDO / FONDO
+===================================================== -->
+
+<div class="world">
+
+    <!-- Estrellas -->
+
+    <div
+        class="stars"
+        id="stars">
+    </div>
+
+
+    <!-- Luces desenfocadas -->
+
+    <div
+        class="bokeh-layer"
+        id="bokehLayer">
+    </div>
+
+
+    <!-- Resplandor -->
+
+    <div class="aurora"></div>
+
+</div>
+
+
+<!-- =====================================================
+     CANVAS DE PARTÍCULAS
+===================================================== -->
+
+<canvas
+    id="particleCanvas">
+</canvas>
+
+
+<!-- =====================================================
+     INTRODUCCIÓN
+===================================================== -->
+
+<section
+    class="intro"
+    id="intro">
+
+
+    <div class="intro-content">
+
+
+        <!-- Resplandor central -->
+
+        <div class="intro-glow"></div>
+
+
+        <!-- Abejas -->
+
+        <div
+            class="bee intro-bee-1">
+        </div>
+
+
+        <div
+            class="bee intro-bee-2">
+        </div>
+
+
+        <div
+            class="bee intro-bee-3">
+        </div>
+
+
+        <!-- Texto superior -->
+
+        <div class="intro-kicker">
+
+            21 DE SEPTIEMBRE
+
+        </div>
+
+
+        <!-- Título -->
+
+        <h1 class="intro-title">
+
+            Hoy es el Día de las
+            Flores Amarillas 🌻
+
+        </h1>
+
+
+        <!-- Descripción -->
+
+        <p class="intro-description">
+
+            Y porque hay detalles que pueden
+            convertir un día cualquiera en un
+            recuerdo especial, hoy hay algo
+            preparado para ti.
+
+        </p>
+
+
+        <!-- Botón -->
+
+        <button
+            class="start-button"
+            id="startButton"
+            type="button"
+            aria-label="Descubrir sorpresa">
+
+            Descubrir mi detalle 🌻
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ABEJAS DE LA ESCENA PRINCIPAL
+===================================================== -->
+
+<div
+    class="bee scene-bee scene-bee-one"
+    aria-hidden="true">
+</div>
+
+
+<div
+    class="bee scene-bee scene-bee-two"
+    aria-hidden="true">
+</div>
+
+
+<!-- =====================================================
+     MENSAJE PRINCIPAL
+===================================================== -->
+
+<header class="main-message">
+
+
+    <div class="message-kicker">
+
+        UN DETALLE ESPECIAL PARA TI
+
+    </div>
+
+
+    <h1 class="main-title">
+
+        Flores Amarillas
+
+    </h1>
+
+
+    <p class="dedication">
+
+        Que estas flores amarillas sean un pequeño
+        recordatorio de que siempre existen motivos
+        para sonreír, soñar y llenar de color
+        nuestros días.
+
+    </p>
+
+
+</header>
+
+
+<!-- =====================================================
+     ESCENA DEL RAMO
+===================================================== -->
+
+<main class="bouquet-scene">
+
+
+    <div
+        class="bouquet"
+        id="bouquet">
+
+
+        <svg
+            id="flowerSVG"
+            viewBox="0 0 900 760"
+            preserveAspectRatio="xMidYMax meet"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="Ramo animado de flores amarillas">
+
+
+            <!-- =================================================
+                 DEFINICIONES SVG
+            ================================================== -->
+
+            <defs>
+
+
+                <!-- TALLOS -->
+
+                <linearGradient
+                    id="stemGradient"
+                    x1="0"
+                    y1="0"
+                    x2="1"
+                    y2="0">
+
+                    <stop
+                        offset="0%"
+                        stop-color="#173719"
+                    />
+
+                    <stop
+                        offset="45%"
+                        stop-color="#679649"
+                    />
+
+                    <stop
+                        offset="100%"
+                        stop-color="#224b21"
+                    />
+
+                </linearGradient>
+
+
+                <!-- HOJAS -->
+
+                <linearGradient
+                    id="leafGradient"
+                    x1="0"
+                    y1="0"
+                    x2="1"
+                    y2="1">
+
+                    <stop
+                        offset="0%"
+                        stop-color="#173919"
+                    />
+
+                    <stop
+                        offset="50%"
+                        stop-color="#719e4d"
+                    />
+
+                    <stop
+                        offset="100%"
+                        stop-color="#285326"
+                    />
+
+                </linearGradient>
+
+
+                <!-- PÉTALOS -->
+
+                <radialGradient
+                    id="petalGradient"
+                    cx="43%"
+                    cy="24%">
+
+                    <stop
+                        offset="0%"
+                        stop-color="#fffbd2"
+                    />
+
+                    <stop
+                        offset="27%"
+                        stop-color="#fff27a"
+                    />
+
+                    <stop
+                        offset="66%"
+                        stop-color="#ffd522"
+                    />
+
+                    <stop
+                        offset="100%"
+                        stop-color="#e99d00"
+                    />
+
+                </radialGradient>
+
+
+                <!-- CENTRO DE LA FLOR -->
+
+                <radialGradient
+                    id="coreGradient"
+                    cx="42%"
+                    cy="36%">
+
+                    <stop
+                        offset="0%"
+                        stop-color="#c98c2a"
+                    />
+
+                    <stop
+                        offset="48%"
+                        stop-color="#77430d"
+                    />
+
+                    <stop
+                        offset="100%"
+                        stop-color="#281304"
+                    />
+
+                </radialGradient>
+
+
+                <!-- PAPEL DEL RAMO -->
+
+                <linearGradient
+                    id="paperGradient"
+                    x1="0"
+                    y1="0"
+                    x2="1"
+                    y2="1">
+
+                    <stop
+                        offset="0%"
+                        stop-color="#faebc1"
+                    />
+
+                    <stop
+                        offset="48%"
+                        stop-color="#c99a59"
+                    />
+
+                    <stop
+                        offset="100%"
+                        stop-color="#865a34"
+                    />
+
+                </linearGradient>
+
+
+            </defs>
+
+
+            <!-- =================================================
+                 TALLOS GENERADOS POR JAVASCRIPT
+            ================================================== -->
+
+            <g id="stemsLayer"></g>
+
+
+            <!-- =================================================
+                 HOJAS GENERADAS POR JAVASCRIPT
+            ================================================== -->
+
+            <g id="leavesLayer"></g>
+
+
+            <!-- =================================================
+                 CAPULLOS GENERADOS POR JAVASCRIPT
+            ================================================== -->
+
+            <g id="budsLayer"></g>
+
+
+            <!-- =================================================
+                 FLORES GENERADAS POR JAVASCRIPT
+            ================================================== -->
+
+            <g id="flowersLayer"></g>
+
+
+            <!-- =================================================
+                 ENVOLTURA DEL RAMO
+            ================================================== -->
+
+            <g class="wrap">
+
+
+                <!-- Papel principal -->
+
+                <path
+                    d="
+                    M305 530
+                    L450 590
+                    L595 530
+                    L525 760
+                    L375 760
+                    Z
+                    "
+                    fill="url(#paperGradient)"
+                />
+
+
+                <!-- Pliegue izquierdo -->
+
+                <path
+                    d="
+                    M305 530
+                    L450 600
+                    L375 760
+                    Z
+                    "
+                    fill="#efd9aa"
+                    opacity=".55"
+                />
+
+
+                <!-- Pliegue derecho -->
+
+                <path
+                    d="
+                    M595 530
+                    L450 600
+                    L525 760
+                    Z
+                    "
+                    fill="#80552f"
+                    opacity=".38"
+                />
+
+
+                <!-- Detalle superior del papel -->
+
+                <path
+                    d="
+                    M340 548
+                    Q450 610
+                    560 548
+                    "
+                    fill="none"
+                    stroke="#fff1c7"
+                    stroke-width="4"
+                    opacity=".35"
+                />
+
+
+                <!-- =================================================
+                     NUDO CENTRAL
+                ================================================== -->
+
+                <ellipse
+                    cx="450"
+                    cy="643"
+                    rx="50"
+                    ry="25"
+                    fill="#ffd425"
+                />
+
+
+                <!-- Lazo izquierdo -->
+
+                <path
+                    d="
+                    M415 640
+                    C355 594
+                    326 624
+                    354 662
+                    C381 686
+                    414 655
+                    450 644
+                    Z
+                    "
+                    fill="#efb60f"
+                />
+
+
+                <!-- Lazo derecho -->
+
+                <path
+                    d="
+                    M485 640
+                    C545 594
+                    574 624
+                    546 662
+                    C519 686
+                    486 655
+                    450 644
+                    Z
+                    "
+                    fill="#efb60f"
+                />
+
+
+                <!-- Cinta izquierda -->
+
+                <path
+                    d="
+                    M430 660
+                    L388 752
+                    L444 711
+                    L456 657
+                    Z
+                    "
+                    fill="#d99a08"
+                />
+
+
+                <!-- Cinta derecha -->
+
+                <path
+                    d="
+                    M470 660
+                    L512 752
+                    L456 711
+                    L444 657
+                    Z
+                    "
+                    fill="#d99a08"
+                />
+
+
+            </g>
+
+
+        </svg>
+
+
+    </div>
+
+
+</main>
+
+
+<!-- =====================================================
+     MENSAJE FINAL
+===================================================== -->
+
+<div class="final-message">
+
+    Feliz Día de las Flores Amarillas 🌻
+    <br>
+    Un pequeño detalle para hacer especial este día.
+    <br>
+    <strong>De parte de Gudi Escalante.</strong>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="app.js"></script>
+
+
+</body>
+
+</html>
